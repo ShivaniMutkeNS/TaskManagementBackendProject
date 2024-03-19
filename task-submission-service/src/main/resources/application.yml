@@ -5,14 +5,14 @@ spring:
   application:
     name: SUBMISSION-SERVICE
   datasource:
-    url: jdbc:h2:mem:mydb
-    username: sa
+    url: jdbc:mysql://taskmanager.c5666k00u2dc.ap-south-1.rds.amazonaws.com:3306/taskmanager
+    username: admin
     password: password
-    driverClassName: org.h2.Driver
-    jpa:
-      spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
-      hibernate:
-        ddl-auto: update
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
 
 
 eureka:

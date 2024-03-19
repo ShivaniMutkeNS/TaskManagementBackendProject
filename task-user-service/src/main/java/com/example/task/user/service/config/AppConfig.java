@@ -59,24 +59,7 @@ public class AppConfig {
 			}
 		};
 	}
-//    private CorsConfigurationSource corsConfigurationSource() {
-//        return new CorsConfigurationSource() {
-//            @Override
-//            public CorsConfiguration getCorsConfiguration(HttpServletRequest request) {
-//                CorsConfiguration cfg = new CorsConfiguration();
-//                cfg.setAllowedOrigins(Arrays.asList(
-//                        "http://localhost:3000",
-//                        "http://localhost:4200"
-//                ));
-//                cfg.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE"));
-//                cfg.setAllowCredentials(true);
-//                cfg.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type"));
-//                cfg.setExposedHeaders(Arrays.asList("Authorization"));
-//                cfg.setMaxAge(3600L);
-//                return cfg;
-//            }
-//        };
-//    }
+
 
     @Bean
     PasswordEncoder passwordEncoder() {
