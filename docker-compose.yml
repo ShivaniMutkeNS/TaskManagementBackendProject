@@ -1,0 +1,66 @@
+version: '3.8'
+
+services:
+  eureka-reg:
+    image: shivanimutke2501393/taskrepo/eurekams:latest
+    container_name: eureka-reg
+    ports:
+      - 8070:8070
+    networks:
+      - backend
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+
+
+  user:
+    image: shivanimutke2501393/taskrepo/userms:latest
+    container_name: user
+    ports:
+      - 5001:5001
+    depends_on:
+      - eureka-reg
+    networks:
+      - backend
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+
+
+  submission:
+    image: shivanimutke2501393/taskrepo/submissionms:latest
+    container_name: submission
+    ports:
+      - 5003:5003
+    networks:
+      - backend
+    depends_on:
+      - eureka-reg
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+
+  gateway:
+    image: shivanimutke2501393/taskrepo/gatewayms:latest
+    container_name: gateway
+    ports:
+      - 6001:6001
+    networks:
+      - backend
+    depends_on:
+      - eureka-reg
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+
+  management:
+    image: shivanimutke2501393/taskrepo/managementms:latest
+    container_name: management
+    ports:
+      - 5002:5002
+    networks:
+      - backend
+    depends_on:
+      - eureka-reg
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+
+networks:
+  backend:
+    driver: bridge

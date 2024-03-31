@@ -1,0 +1,49 @@
+
+server:
+  port: 6001
+spring:
+  application:
+    name: API-GATEWAY
+
+
+  cloud:
+    gateway:
+      routes:
+        - id: USER-SERVICE
+          uri:
+            http://user:5001
+          predicates:
+            - Path=/auth/**,/users/**,/api/users/**,/
+
+        - id: TASK-SERVICE
+          uri:
+            http://management:5002
+          predicates:
+            - Path=/api/tasks/**,/tasks/**
+
+        - id: SUBMISSION-SERVICE
+          uri:
+            http://submission:5003
+          predicates:
+            - Path=/api/submissions/**,/submissions/**
+
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    fetchRegistry: true
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: http://eureka-reg:8070/eureka/
+
+

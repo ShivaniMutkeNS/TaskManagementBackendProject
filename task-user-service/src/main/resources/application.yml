@@ -1,6 +1,13 @@
+user:
+  url: http://localhost:5001
+submission:
+  url: http://localhost:5003
+management:
+  url: http://localhost:5002
 
 server:
   port: 5001
+
 
 spring:
   application:

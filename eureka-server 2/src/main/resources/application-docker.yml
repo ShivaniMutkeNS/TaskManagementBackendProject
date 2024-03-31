@@ -1,22 +1,21 @@
-
 user:
-  url: http://localhost:5001
+  url: http://user:5001
 submission:
-  url: http://localhost:5003
+  url: http://submission:5003 #database container name
 management:
-  url: http://localhost:5002
+  url: http://management:5002
 
 server:
   port: 8070
 
 eureka:
   instance:
-    hostname: localhost
+    hostname: eureka-reg
   client:
     registerWithEureka: false
     fetchRegistry: false
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      defaultZone: http://eureka-reg:8070/eureka/
 
 
 spring:

@@ -1,9 +1,9 @@
 user:
-  url: http://localhost:5001
+  url: http://user:5001
 submission:
-  url: http://localhost:5003
+  url: http://submission:5003
 management:
-  url: http://localhost:5002
+  url: http://management:5002
 
 server:
   port: 5003
@@ -29,4 +29,4 @@ eureka:
     fetchRegistry: true
     registerWithEureka: true
     serviceUrl:
-      defaultZone: http://localhost:8070/eureka/
+      defaultZone: http://eureka-reg:8070/eureka/

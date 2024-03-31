@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 @Component
-@FeignClient(name = "USER-SERVICE", url = "http://localhost:5001")
+@FeignClient(name = "USER-SERVICE", url = "${user.url}")
 public interface UserService {
 
     @GetMapping("/api/users/profile")
