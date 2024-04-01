@@ -13,7 +13,7 @@ services:
 
 
   user:
-    image: shivanimutke2501393/taskrepo/userms:latest
+    image: shivanimutke2501393/userms:latest
     container_name: user
     ports:
       - 5001:5001
@@ -26,7 +26,7 @@ services:
 
 
   submission:
-    image: shivanimutke2501393/taskrepo/submissionms:latest
+    image: shivanimutke2501393/submissionms:latest
     container_name: submission
     ports:
       - 5003:5003
@@ -38,7 +38,7 @@ services:
       - SPRING_PROFILES_ACTIVE=docker
 
   gateway:
-    image: shivanimutke2501393/taskrepo/gatewayms:latest
+    image: shivanimutke2501393/gatewayms:latest
     container_name: gateway
     ports:
       - 6001:6001
@@ -50,7 +50,7 @@ services:
       - SPRING_PROFILES_ACTIVE=docker
 
   management:
-    image: shivanimutke2501393/taskrepo/managementms:latest
+    image: shivanimutke2501393/managementms:latest
     container_name: management
     ports:
       - 5002:5002
